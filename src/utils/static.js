@@ -1,0 +1,10 @@
+/*
+ * @Author: FengXiao
+ * @Date: 2020-12-20 11:22:30
+ * @LastEditors: FengXiao
+ * @LastEditTime: 2020-12-20 19:47:58
+ */
+export const BACKGROUND_VIDEO_URL =
+  'https://stream.mux.com/PDolZIrwdONTFJd005VOT4qvFsyxVfB01N/high.mp4?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InQ5UHZucm9ZY0hQNjhYSmlRQnRHTEVVSkVSSXJ0UXhKIn0.eyJleHAiOjE2MDg0NzI4MDEsImF1ZCI6InYiLCJzdWIiOiJQRG9sWklyd2RPTlRGSmQwMDVWT1Q0cXZGc3l4VmZCMDFOIn0.aITsC-v7uS-su15m2RYkCi-lVzUdWkCGimK_2aR_n9jg_fTRcudaj-3JbmuSxQ8q1aymET3VldYep6gFX2BOwuA6Vde3o5Snt8v80cqGv0G1Eh2MpA2exNgUu1sD8c_l_JahJTMr1tWUmG4JwVGpARi8SB0Kl3WSZso9kGWbv1LfEoyeCFun9W55qAklt8YTxu4DNX3q8RvTXvY7lhu0KKBneuPIi8hl7M7jARUuvpbTjKQJqcB3hyY83YPkfQRxYJD9w6zIdw1AULXSS615lqJ8gwlIZPQepeLGpsmS9r2k7AxdxB4DSsXawy3IHUD8Sj2nyBiViHXEv93CIiI88w';
+
+export const BACKGROUND_VIDEO_POSTER_URL = 'https://storage.coverr.co/t/PDolZIrwdONTFJd005VOT4qvFsyxVfB01N';
