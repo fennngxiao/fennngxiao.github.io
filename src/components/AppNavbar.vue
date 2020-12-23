@@ -2,7 +2,7 @@
  * @Author: FengXiao
  * @Date: 2020-12-22 15:54:18
  * @LastEditors: FengXiao
- * @LastEditTime: 2020-12-22 17:13:19
+ * @LastEditTime: 2020-12-23 11:22:27
 -->
 <template>
   <div class="app-navbar">
@@ -59,9 +59,10 @@ export default {
     &--text {
       display: inline-block;
       position: relative;
-      background-image: linear-gradient(90deg, #39394d, #7f5cca);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #000;
+      // background-image: linear-gradient(90deg, #39394d, #7f5cca);
+      // background-clip: text;
+      // -webkit-text-fill-color: transparent;
     }
     &--text::after {
       content: '';
@@ -70,7 +71,8 @@ export default {
       left: 50%;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #39394d, #7f5cca);
+      // background: linear-gradient(90deg, #39394d, #7f5cca);
+      background: #000;
       transition: all ease-in 0.2s;
       border-radius: 2px;
     }
