@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/views/layout/index.vue'
 /**
  * @description: 根据目录读取文件名列表
@@ -19,7 +19,7 @@ import Layout from '@/views/layout/index.vue'
 } */
 // getFileNameListByDirectory()
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
