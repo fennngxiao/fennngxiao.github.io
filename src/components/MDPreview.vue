@@ -4,6 +4,7 @@
 
 <script setup>
 import { ref, watch } from 'vue';
+import {getFiles} from '@/utils/menu';
 const props = defineProps({
   path: {
     type: String,
@@ -15,9 +16,10 @@ const content = ref('');
 
 const renderContent = async () => {
   if (props.path) {
-
-    const file = await import(`${props.path}?raw`)
-    content.value = file?.default || '暂无内容';
+    const { modules } = getFiles();
+    console.log(modules.MD);
+    const fileContent = modules.MD[props.path]
+    content.value = fileContent || '暂无内容';
   } else {
     content.value = '## 欢迎您，我的朋友';
   }

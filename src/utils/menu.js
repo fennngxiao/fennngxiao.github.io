@@ -2,7 +2,7 @@ import { useRouter } from 'vue-router'
 import STATIC from './static'
 const { ROOT_CATEGORY } = STATIC
 export function getFiles() {
-  const mdModules = import.meta.glob(`../views/articles/**/*.md`)
+  const mdModules = import.meta.glob(`../views/articles/**/*.md`, { as: 'raw', eager: true })
   const vueModules = import.meta.glob(`../views/articles/**/*.vue`)
   const filePathList = [...Object.keys(mdModules), ...Object.keys(vueModules)]
   return {
@@ -46,7 +46,6 @@ export function handleMenuData() {
   const { modules, filePathList } = getFiles()
   const categoryMap = {}
   for (const pathStr of filePathList) {
-    debugger
     const cateArr = pathStr.replace(`../views/${ROOT_CATEGORY}/`, '').split('/')
     cateArr.forEach((cateName, i) => {
       if (!categoryMap[i]) categoryMap[i] = {}
