@@ -7,7 +7,6 @@ export const menuDataStore = defineStore('menu', () => {
   const menus = computed(() => menuData.value.menus)
   const categoryMap = computed(() => menuData.value.categoryMap)
   const articlesMap = computed(() => menuData.value.articlesMap)
-  console.log(menus.value)
   function cacheMenu(data) {
     sessionStorage.currentMenu = JSON.stringify(data)
   }

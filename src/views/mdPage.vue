@@ -18,7 +18,6 @@ watch(
     if (route.path.includes('mdPage')) {
       if (id && store.articlesMap[id]) {
         menu.value = store.articlesMap[id]
-        console.log(menu.value.path);
       } else {
         router.replace('/')
       }

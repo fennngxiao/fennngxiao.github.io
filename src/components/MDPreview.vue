@@ -17,7 +17,6 @@ const content = ref('');
 const renderContent = async () => {
   if (props.path) {
     const { modules } = getFiles();
-    console.log(modules.MD);
     const fileContent = modules.MD[props.path]
     content.value = fileContent || '暂无内容';
   } else {

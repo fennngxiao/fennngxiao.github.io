@@ -74,7 +74,6 @@ export function handleMenuData() {
       }
     })
   }
-  console.log(categoryMap)
   const menus = categoryMapToTree(categoryMap)
 
   return {
