@@ -6,12 +6,13 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-
+import mdPlugin from 'vite-plugin-markdown'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    mdPlugin(),
     AutoImport({
       resolvers: [ElementPlusResolver()]
     }),

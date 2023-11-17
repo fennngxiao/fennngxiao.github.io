@@ -2,7 +2,7 @@ import { useRouter } from 'vue-router'
 import STATIC from './static'
 const { ROOT_CATEGORY } = STATIC
 export function getFiles() {
-  const mdModules = import.meta.glob(`@/views/articles/**/*.MD`)
+  const mdModules = import.meta.glob(`@/views/articles/**/*.md`)
   const vueModules = import.meta.glob(`@/views/articles/**/*.vue`)
   const filePathList = [...Object.keys(mdModules), ...Object.keys(vueModules)]
   return {
