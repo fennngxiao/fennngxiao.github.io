@@ -2,8 +2,8 @@ import { useRouter } from 'vue-router'
 import STATIC from './static'
 const { ROOT_CATEGORY } = STATIC
 export function getFiles() {
-  const mdModules = import.meta.glob(`@/views/articles/**/*.md`)
-  const vueModules = import.meta.glob(`@/views/articles/**/*.vue`)
+  const mdModules = import.meta.glob(`../views/articles/**/*.md`)
+  const vueModules = import.meta.glob(`../views/articles/**/*.vue`)
   const filePathList = [...Object.keys(mdModules), ...Object.keys(vueModules)]
   return {
     modules: {
@@ -46,7 +46,8 @@ export function handleMenuData() {
   const { modules, filePathList } = getFiles()
   const categoryMap = {}
   for (const pathStr of filePathList) {
-    const cateArr = pathStr.replace(`/src/views/${ROOT_CATEGORY}/`, '').split('/')
+    debugger
+    const cateArr = pathStr.replace(`../views/${ROOT_CATEGORY}/`, '').split('/')
     cateArr.forEach((cateName, i) => {
       if (!categoryMap[i]) categoryMap[i] = {}
       const category = i === 0 ? ROOT_CATEGORY : cateArr[i - 1] // 类型
