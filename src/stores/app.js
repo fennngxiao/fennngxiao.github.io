@@ -10,7 +10,11 @@ export const themeStore = defineStore('app', () => {
   setHtmlClass()
   function changeTheme(v) {
     isDarkTheme.value = v
-    localStorage.isDark = v === isDark ? null : v
+    if (v === isDark) {
+      localStorage.removeItem('isDark')
+    } else {
+      localStorage.isDark = v
+    }
     setHtmlClass()
   }
   return {

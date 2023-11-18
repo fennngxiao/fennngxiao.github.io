@@ -1,5 +1,5 @@
 <template>
-  <MDPreview :path="menu.path" />
+  <MDPreview :path="menu.path" class="markdown-preview" />
 </template>
 
 <script setup>
@@ -27,4 +27,18 @@ watch(
 )
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.markdown-preview {
+  :deep(h1),
+  :deep(h2),
+  :deep(h3),
+  :deep(h4),
+  :deep(h5),
+  :deep(h6) {
+    color: var(--color-title);
+  }
+  :deep(img) {
+    border-radius: 10px;
+  }
+}
+</style>
