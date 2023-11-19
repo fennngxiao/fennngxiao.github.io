@@ -15,16 +15,14 @@
       />
     </div>
   </div>
-  <el-row class="layout">
-    <el-col :span="4">
-      <Menu @select="onMenuSelect" />
-    </el-col>
-    <el-col :span="20" class="container-wrap">
+  <div class="layout">
+    <Menu @select="onMenuSelect" />
+    <div class="container-wrap">
       <div class="container">
         <RouterView />
       </div>
-    </el-col>
-  </el-row>
+    </div>
+  </div>
 </template>
 <script setup>
 import { nextTick } from 'vue'
@@ -58,7 +56,12 @@ if (route.query.redirect && route.query.menu) {
 </script>
 <style lang="scss" scoped>
 $topBarHeight: 40px;
+$menuWidth: 280px;
 .top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   background: var(--app-base-bg-color);
   height: $topBarHeight;
   color: var(--vt-c-white);
@@ -66,6 +69,7 @@ $topBarHeight: 40px;
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
+  z-index: 10;
   .home-btn {
     background: #fff;
     border-radius: 15px;
@@ -96,19 +100,26 @@ $topBarHeight: 40px;
 }
 .layout {
   height: calc(100% - $topBarHeight);
+  display: flex;
   width: 100%;
 
   .el-menu {
-    height: 100%;
+    width: $menuWidth;
+    height: calc(100vh - $topBarHeight);
+    position: fixed;
+    z-index: 10;
+    top: $topBarHeight;
+    left: 0;
   }
 
   .container-wrap {
-    height: 100%;
+    width: 100vw;
+    min-height: 100%;
     background: var(--app-base-bg-color);
+    padding: $topBarHeight 0 0 $menuWidth;
     .container {
-      height: 100%;
+      min-height: 100%;
       box-sizing: border-box;
-      overflow-y: auto;
       background: var(--color-background);
       border-radius: 16px 0 0 16px;
     }

@@ -1,23 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/views/layout/index.vue'
-/**
- * @description: 根据目录读取文件名列表
- * @return {*}
- */
-/* const getFileNameListByDirectory = () => {
-  const files = import.meta.glob('./views/Page*.vue') // 自定义规则
-  for (let i in files) {
-    // console.log(123, i, files[i]);
-    const newName = i.replace(/.\/views\//, '').replace(/.vue/, '')
-    // console.log(13, newName, newName.toLocaleLowerCase(), files[i]);
-    router.addRoute({
-      path: '/' + newName.toLocaleLowerCase(),
-      name: newName,
-      component: files[i]
-    })
-  }
-} */
-// getFileNameListByDirectory()
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
