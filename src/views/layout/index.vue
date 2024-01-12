@@ -1,6 +1,6 @@
 <template>
   <div class="top-bar">
-    <div class="home-btn"><img src="../../assets/logo.png" alt="" /></div>
+    <div class="home-btn" @click="goHome()"><img src="../../assets/logo.png" alt="" /></div>
     <div class="actions">
       <div class="search-btn btn"><i class="iconfont icon-search"></i></div>
       <div class="github-btn btn"><i class="iconfont icon-github"></i></div>
@@ -53,6 +53,9 @@ if (route.query.redirect && route.query.menu) {
     onMenuSelect(JSON.parse(route.query.menu))
   })
 }
+const goHome = () => { 
+  router.push('/home')
+}
 </script>
 <style lang="scss" scoped>
 $topBarHeight: 40px;
@@ -99,9 +102,9 @@ $menuWidth: 280px;
   }
 }
 .layout {
-  height: calc(100% - $topBarHeight);
   display: flex;
   width: 100%;
+  height: 100%;
 
   .el-menu {
     width: $menuWidth;

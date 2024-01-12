@@ -51,6 +51,15 @@ html.dark-theme {
   --color-text: var(--vt-c-text-dark-2);
   --color-title: var(--vt-c-white);
   --color-a: var(--vt-c-black-a);
+
+  --color-table-background: var(--vt-c-black-soft);
+  --color-table-background-2n: #333;
+  .github-markdown-body table tr {
+    background-color: var(--color-table-background);
+  }
+  .github-markdown-body table tr:nth-child(2n) {
+    background-color: var(--color-table-background-2n);
+  }
 }
 
 *,

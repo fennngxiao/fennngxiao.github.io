@@ -1,11 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/views/layout/index.vue'
+import Home from '@/views/home.vue'
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       path: '/',
-      redirect: '/articles'
+      redirect: '/home'
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home
     },
     {
       path: '/articles',
@@ -22,8 +28,9 @@ const router = createRouter({
   ]
 })
 let isLoaded = false
+const whiteList = ['/home']
 router.beforeEach((to, from, next) => {
-  if (!isLoaded && sessionStorage.currentMenu) {
+  if (!isLoaded && sessionStorage.currentMenu && !whiteList.includes(to.path)) {
     isLoaded = true
     next({
       path: '/articles',
