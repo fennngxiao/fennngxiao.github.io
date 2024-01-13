@@ -1,6 +1,7 @@
 <template>
   <div class="home-page" :class="curBG">
     <!-- <img class="bg-img" src="https://api.yimian.xyz/img?type=wallpaper" alt="" /> -->
+    <div class="refresh-btn" @click="refreshBG"><i class="iconfont icon-refresh"></i></div>
     <div class="content" @click="enter()">
       <div class="enter-btn">
         <div class="btn-content">
@@ -19,10 +20,14 @@ import { randomNum } from '@/utils'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
-const curBG = ref(`BG-${randomNum(1, 30)}`)
+const curBG = ref('')
 function enter() {
   router.push('/articles')
 }
+function refreshBG() {
+  curBG.value = `BG-${randomNum(0, 30)}`
+}
+refreshBG();
 </script>
 
 <style lang="scss" scoped>
@@ -40,6 +45,27 @@ function enter() {
     object-fit: cover;
   }
 
+  .refresh-btn {
+    color: #fff;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    line-height: 24px;
+    border-radius: 50%;
+    background-color: rgba($color: #000, $alpha: 0.35);
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+      transform: rotate(360deg);
+    }
+
+    i {
+      font-size: 24px;
+    }
+  }
+
   .content {
     width: 600px;
     height: 200px;
@@ -48,8 +74,8 @@ function enter() {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba($color: #fff, $alpha: 0.35);
-    backdrop-filter: blur(3px);
+    // background-color: rgba($color: #fff, $alpha: 0.35);
+    backdrop-filter: blur(5px);
     box-shadow: 0 2px 10px rgba(255, 255, 255, 0.45);
 
     .enter-btn {
@@ -64,6 +90,7 @@ function enter() {
 
       .btn-content {
         color: #fff;
+
       }
 
       .hover,
@@ -96,6 +123,7 @@ function enter() {
           background-image: linear-gradient(90deg, #452cff 0%, #ff1f23 100%);
           color: transparent;
           transform: translateX(100%);
+          animation: 4s linear 0.2s infinite ani_glisten;
         }
       }
 
@@ -120,6 +148,20 @@ function enter() {
 
     body {
       background: #ffdee9;
+    }
+
+    @keyframes ani_glisten {
+      0% {
+        filter: brightness(0);
+      }
+
+      50% {
+        filter: brightness(3);
+      }
+
+      100% {
+        filter: brightness(0);
+      }
     }
   }
 }

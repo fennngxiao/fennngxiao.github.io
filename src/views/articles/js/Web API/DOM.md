@@ -5,6 +5,8 @@
 同级（在前，在后）、父子、包含
 
 移动方法：
+|名称 | 方法 |
+| ---- | ---- |
 | 添加 | appendChild |
 | 删除 | removeChild |
 | 替换 | replaceChild |

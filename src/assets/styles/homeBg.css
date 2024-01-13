@@ -562,8 +562,8 @@
 }
 .BG-24 {
   background:
-    linear-gradient(315deg, transparent 75%, #d45d55 0)-10px 0,
-    linear-gradient(45deg, transparent 75%, #d45d55 0)-10px 0,
+    linear-gradient(315deg, transparent 75%, #ffd24e 0)-10px 0,
+    linear-gradient(45deg, transparent 75%, #ffd24e 0)-10px 0,
     linear-gradient(135deg, #a7332b 50%, transparent 0) 0 0,
     linear-gradient(45deg, #6a201b 50%, #561a16 0) 0 0 #561a16;
   background-size: 20px 20px;
@@ -642,6 +642,9 @@
   background-position:
     0 0,
     40px 40px;
+  background-color: #ffd24e;
+  background-image: radial-gradient(closest-side, transparent 98%, rgb(255 38 123 / 30%) 99%),
+    radial-gradient(closest-side, transparent 98%, rgb(171 127 17 / 90%) 99%);
 }
 .BG-29 {
   background-color: black;

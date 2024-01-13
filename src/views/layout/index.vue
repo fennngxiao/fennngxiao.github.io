@@ -4,15 +4,8 @@
     <div class="actions">
       <div class="search-btn btn"><i class="iconfont icon-search"></i></div>
       <div class="github-btn btn"><i class="iconfont icon-github"></i></div>
-      <el-switch
-        class="theme-switch btn"
-        v-model="isDarkTheme"
-        size="default"
-        inline-prompt
-        :active-action-icon="Sunny"
-        :inactive-action-icon="Moon"
-        @change="themeChange"
-      />
+      <el-switch class="theme-switch btn" v-model="isDarkTheme" size="default" inline-prompt :active-action-icon="Sunny"
+        :inactive-action-icon="Moon" @change="themeChange" />
     </div>
   </div>
   <div class="layout">
@@ -53,13 +46,14 @@ if (route.query.redirect && route.query.menu) {
     onMenuSelect(JSON.parse(route.query.menu))
   })
 }
-const goHome = () => { 
+const goHome = () => {
   router.push('/home')
 }
 </script>
 <style lang="scss" scoped>
 $topBarHeight: 40px;
 $menuWidth: 280px;
+
 .top-bar {
   position: fixed;
   top: 0;
@@ -73,6 +67,7 @@ $menuWidth: 280px;
   justify-content: space-between;
   padding: 0 15px;
   z-index: 10;
+
   .home-btn {
     background: #fff;
     border-radius: 15px;
@@ -82,25 +77,30 @@ $menuWidth: 280px;
     cursor: pointer;
     transition: all ease-in-out 0.15s;
     margin-top: 5px;
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 2px 8px rgb(0 0 0 / 80%);
     }
   }
+
   .actions {
     display: flex;
     align-items: center;
+
     .btn {
       margin: 0 5px;
       cursor: pointer;
     }
   }
+
   .theme-switch {
     --el-switch-off-color: #948e88;
     --el-switch-border-color: #999;
     --el-switch-on-color: #333;
   }
 }
+
 .layout {
   display: flex;
   width: 100%;
@@ -113,6 +113,7 @@ $menuWidth: 280px;
     z-index: 10;
     top: $topBarHeight;
     left: 0;
+    overflow-y: auto;
   }
 
   .container-wrap {
@@ -120,6 +121,7 @@ $menuWidth: 280px;
     min-height: 100%;
     background: var(--app-base-bg-color);
     padding: $topBarHeight 0 0 $menuWidth;
+
     .container {
       min-height: 100%;
       box-sizing: border-box;
