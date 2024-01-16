@@ -154,6 +154,7 @@ const onDragBarChange = (val) => {
 
 .markdown-preview {
   flex: 1;
+  overflow-x: hidden;
 
   :deep(h1),
   :deep(h2),

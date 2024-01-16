@@ -13,9 +13,16 @@ a,
   }
 }
 
-#app{
+#app {
   height: 100vh;
   width: 100vw;
+}
+.page-content {
+  padding: 15px;
+}
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
 }
 @media (min-width: 1024px) {
   body {
