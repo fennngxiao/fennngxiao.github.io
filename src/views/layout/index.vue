@@ -127,6 +127,7 @@ $menuWidth: 280px;
       box-sizing: border-box;
       background: var(--color-background);
       border-radius: 16px 0 0 16px;
+      overflow: hidden;
     }
   }
 }

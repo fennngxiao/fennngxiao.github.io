@@ -1,6 +1,6 @@
 <template>
   <div class="page-content">
-    <div class="page-title">CSS 图标</div>
+    <div class="page-title">CSS 绘制图标</div>
     <div class="size-change">
       <span>大小调节( transform: scale({{ iconSize }}) )：</span>
       <el-slider v-model="iconSize" :min="0.1" :max="1" :step="0.1" show-input />
@@ -23,12 +23,13 @@ export default {
     }
   },
   created() {
-    this.icons = ['arrow-right', 'arrow-left', 'arrow-top', 'arrow-bottom', 'position', 'bingo'];
+    this.icons = ['arrow-right', 'arrow-left', 'arrow-top', 'arrow-bottom', 'position', 'bingo', 'plus', 'heart', 'camera'];
   },
 }
 </script>
 <style lang="scss" scoped>
 $red: #f60018;
+$black: #333;
 
 .size-change {
   width: 500px;
@@ -142,5 +143,88 @@ $red: #f60018;
     border-radius: 1px;
     border-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.6)) 2;
   }
+}
+
+.plus {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+
+  &::after {
+    display: inline-block;
+    content: " ";
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: $black;
+    box-shadow: 0 -20px 0 $black,
+      0 20px 0 $black,
+      -20px 0 0 $black,
+      20px 0 0 $black;
+  }
+}
+
+i.heart {
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  background: green;
+  margin-left: 50px;
+  margin-right: 50px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 50px;
+    height: 75px;
+    background: $black;
+    border-radius: 50% 50% 0 0;
+    content: '';
+    top: -36px;
+  }
+
+  &::before {
+    transform: rotate(48deg);
+    transform-origin: 100% 100%;
+    right: 0;
+    background: $black;
+    z-index: 5;
+  }
+
+  &::after {
+    transform: rotate(-48deg);
+    transform-origin: 0 100%;
+    left: 0;
+  }
+}
+
+.camera {
+  display: inline-block;
+  border-style: solid;
+  border-width: 40px 58px;
+  border-radius: 10px;
+  color: $black;
+}
+
+.camera:before {
+  position: absolute;
+  top: -15px;
+  left: -28px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 0 0 8px, 0 0 0 16px #fff;
+  content: "";
+}
+
+.camera:after {
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  width: 15px;
+  border-top: 8px solid #fff;
+  content: "";
 }
 </style>
