@@ -1,5 +1,9 @@
 <template>
-  <div class="draw-base">
+  <div class="draw-base" :style="{ 'font-size': `${size}px` }">
+    <div class="size-change">
+      <span>大小调节( font-size: {{ size }}px )：</span>
+      <el-slider v-model="size" :min="0" :max="150" :step="1" show-input />
+    </div>
     <div class="pic-base">
       <div class="pic" :class="{ jump: !!status }">
         <span ref="pic"></span>
@@ -10,12 +14,14 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       normal: '',
       status: 0,
-      action_1: ''
+      action_1: '',
+      size: 100
     }
   },
   mounted() {
@@ -756,6 +762,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.size-change {
+  width: 500px;
+  font-size: 16px;
+  color: #fff;
+  padding: 15px;
+}
+
 .draw-base {
   position: relative;
   width: 100%;
