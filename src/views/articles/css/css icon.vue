@@ -11,21 +11,10 @@
     </div>
   </div>
 </template>
-<script>
-import { ElSlider } from 'element-plus'
-export default {
-  components: {
-    ElSlider,
-  },
-  data() {
-    return {
-      iconSize: 1
-    }
-  },
-  created() {
-    this.icons = ['arrow-right', 'arrow-left', 'arrow-top', 'arrow-bottom', 'position', 'bingo', 'plus', 'heart', 'camera'];
-  },
-}
+<script setup>
+import { ref } from 'vue';
+const iconSize = ref(1)
+const icons = ['arrow-right', 'arrow-left', 'arrow-top', 'arrow-bottom', 'position', 'bingo', 'plus', 'heart', 'camera']
 </script>
 <style lang="scss" scoped>
 $red: #f60018;
