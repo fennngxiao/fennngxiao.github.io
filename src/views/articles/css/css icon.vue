@@ -6,15 +6,30 @@
       <el-slider v-model="iconSize" :min="0.1" :max="1" :step="0.1" show-input />
     </div>
     <div class="icons">
-      <i v-for="icon in icons" :key="icon" :class="icon" :style="{ transform: `scale(${iconSize})` }">
+      <i
+        v-for="icon in icons"
+        :key="icon"
+        :class="icon"
+        :style="{ transform: `scale(${iconSize})` }"
+      >
       </i>
     </div>
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 const iconSize = ref(1)
-const icons = ['arrow-right', 'arrow-left', 'arrow-top', 'arrow-bottom', 'position', 'bingo', 'plus', 'heart', 'camera']
+const icons = [
+  'arrow-right',
+  'arrow-left',
+  'arrow-top',
+  'arrow-bottom',
+  'position',
+  'bingo',
+  'plus',
+  'heart',
+  'camera'
+]
 </script>
 <style lang="scss" scoped>
 $red: #f60018;
@@ -29,7 +44,7 @@ $black: #333;
   align-items: center;
   flex-wrap: wrap;
 
-  &>i {
+  & > i {
     margin: 8px;
   }
 }
@@ -142,12 +157,13 @@ $black: #333;
 
   &::after {
     display: inline-block;
-    content: " ";
+    content: ' ';
     width: 20px;
     height: 20px;
     vertical-align: middle;
     background: $black;
-    box-shadow: 0 -20px 0 $black,
+    box-shadow:
+      0 -20px 0 $black,
       0 20px 0 $black,
       -20px 0 0 $black,
       20px 0 0 $black;
@@ -204,8 +220,10 @@ i.heart {
   height: 30px;
   border-radius: 50%;
   border: 5px solid #fff;
-  box-shadow: 0 0 0 8px, 0 0 0 16px #fff;
-  content: "";
+  box-shadow:
+    0 0 0 8px,
+    0 0 0 16px #fff;
+  content: '';
 }
 
 .camera:after {
@@ -214,6 +232,6 @@ i.heart {
   left: 30px;
   width: 15px;
   border-top: 8px solid #fff;
-  content: "";
+  content: '';
 }
 </style>

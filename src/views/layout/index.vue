@@ -4,8 +4,15 @@
     <div class="actions">
       <div class="search-btn btn"><i class="iconfont icon-search"></i></div>
       <div class="github-btn btn"><i class="iconfont icon-github"></i></div>
-      <el-switch class="theme-switch btn" v-model="isDarkTheme" size="default" inline-prompt :active-action-icon="Sunny"
-        :inactive-action-icon="Moon" @change="themeChange" />
+      <el-switch
+        class="theme-switch btn"
+        v-model="isDarkTheme"
+        size="default"
+        inline-prompt
+        :active-action-icon="Sunny"
+        :inactive-action-icon="Moon"
+        @change="themeChange"
+      />
     </div>
   </div>
   <div class="layout">

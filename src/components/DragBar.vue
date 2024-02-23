@@ -8,38 +8,38 @@ export default {
   props: {
     origin: {
       type: Number,
-      default: 0,
-    },
+      default: 0
+    }
   },
   data() {
     return {
       move: 0,
-      isDrag: false,
-    };
+      isDrag: false
+    }
   },
   watch: {
     move(val) {
-      this.$emit('change', val);
-    },
+      this.$emit('change', val)
+    }
   },
   methods: {
     onDragMouseDown(e) {
-      this.isDrag = true;
-      this.dragX = e.clientX || (e.touches && e.touches[0]?.clientX);
-      this.start = this.origin;
+      this.isDrag = true
+      this.dragX = e.clientX || (e.touches && e.touches[0]?.clientX)
+      this.start = this.origin
     },
     onDragMouseMove(e) {
       if (this.isDrag) {
-        const eventX = e.clientX || (e.touches && e.touches[0]?.clientX);
-        const moveX = eventX - this.dragX;
-        this.move = this.start - moveX;
+        const eventX = e.clientX || (e.touches && e.touches[0]?.clientX)
+        const moveX = eventX - this.dragX
+        this.move = this.start - moveX
       }
     },
     onDragMouseUp() {
-      this.isDrag = false;
-    },
-  },
-};
+      this.isDrag = false
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

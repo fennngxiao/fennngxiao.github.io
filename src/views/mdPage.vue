@@ -1,17 +1,29 @@
 <template>
   <div class="md-page">
     <MDPreview :path="menu.path" class="markdown-preview" ref="mdPreviewRef" />
-    <div class="catalog-wrap" :class="{ fold: isCatalogFold, 'no-ani': isDragging }" :style="{ width: `${catalogW}px` }">
+    <div
+      class="catalog-wrap"
+      :class="{ fold: isCatalogFold, 'no-ani': isDragging }"
+      :style="{ width: `${catalogW}px` }"
+    >
       <el-affix :offset="40" :style="{ width: `${catalogW}px` }">
         <DragBar :origin="catalogW" @change="onDragBarChange" />
         <div class="fold-btn" @click="isCatalogFold = !isCatalogFold">
           <i class="iconfont icon-unfold"></i>
         </div>
         <div class="catalog">
-          <div v-for="(tit, index) in titles" :key="index" :style="{ 'padding-left': `${tit.indent * 20}px` }"
-            @click="handleTitleClick(tit)" class="catalog-item">
-            <span class="catalog-item-text" :style="{ 'font-weight': tit.indent > 1 ? 'normal' : 'bold' }">{{ tit.title
-            }}</span>
+          <div
+            v-for="(tit, index) in titles"
+            :key="index"
+            :style="{ 'padding-left': `${tit.indent * 20}px` }"
+            @click="handleTitleClick(tit)"
+            class="catalog-item"
+          >
+            <span
+              class="catalog-item-text"
+              :style="{ 'font-weight': tit.indent > 1 ? 'normal' : 'bold' }"
+              >{{ tit.title }}</span
+            >
           </div>
         </div>
       </el-affix>
@@ -25,18 +37,18 @@ import { useRouter, useRoute } from 'vue-router'
 import MDPreview from '@/components/MDPreview.vue'
 import DragBar from '@/components/DragBar.vue'
 import { menuDataStore } from '@/stores/menu'
-const CATELOG_DEF_WIDTH = 400;
-const CATELOG_FOLD_WIDTH = 15;
+const CATELOG_DEF_WIDTH = 400
+const CATELOG_FOLD_WIDTH = 15
 const menu = ref({})
 const route = useRoute()
 const router = useRouter()
 const store = menuDataStore()
 const titles = ref([])
 const mdPreviewRef = ref(null)
-const isCatalogFold = ref(false);
+const isCatalogFold = ref(false)
 const catalogW = ref(CATELOG_DEF_WIDTH)
 const isDragging = ref(false)
-let dragW = null;
+let dragW = null
 watch(
   () => route.params.id,
   (id) => {
@@ -54,7 +66,7 @@ watch(
   { immediate: true, deep: true }
 )
 watch(isCatalogFold, (v) => {
-  catalogW.value = v ? CATELOG_FOLD_WIDTH : dragW || CATELOG_DEF_WIDTH;
+  catalogW.value = v ? CATELOG_FOLD_WIDTH : dragW || CATELOG_DEF_WIDTH
 })
 function renderCatelog() {
   const tits = mdPreviewRef.value.$el.querySelectorAll('h1,h2,h3,h4')
@@ -86,24 +98,24 @@ const handleTitleClick = (tit) => {
   }
 }
 
-let dragTimer = null;
+let dragTimer = null
 
 const onDragBarChange = (val) => {
   if (!isCatalogFold.value && val < CATELOG_DEF_WIDTH) {
-    catalogW.value = val;
-    dragW = catalogW.value;
+    catalogW.value = val
+    dragW = catalogW.value
     if (val < CATELOG_FOLD_WIDTH) {
-      catalogW.value = CATELOG_FOLD_WIDTH;
-      dragW = null;
-      isCatalogFold.value = true;
+      catalogW.value = CATELOG_FOLD_WIDTH
+      dragW = null
+      isCatalogFold.value = true
     }
 
-    isDragging.value = true;
+    isDragging.value = true
     //  拖拽时关闭延时动画
-    if (dragTimer) clearTimeout(dragTimer);
+    if (dragTimer) clearTimeout(dragTimer)
     dragTimer = setTimeout(() => {
-      isDragging.value = false;
-      dragTimer = null;
+      isDragging.value = false
+      dragTimer = null
     }, 600)
   }
 }
@@ -117,14 +129,13 @@ const onDragBarChange = (val) => {
   .catalog-wrap {
     border-left: 1px solid #e0e0eb;
     position: relative;
-    transition: width 0.5s cubic-bezier(.3, -0.24, .71, 1.23);
+    transition: width 0.5s cubic-bezier(0.3, -0.24, 0.71, 1.23);
 
     &.no-ani {
       transition: unset;
     }
 
     &.fold {
-
       .fold-btn {
         transform: rotate(180deg);
       }

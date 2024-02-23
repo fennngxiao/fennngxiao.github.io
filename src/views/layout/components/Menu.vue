@@ -30,11 +30,15 @@ if (sessionStorage.currentMenu) {
 }
 
 // 监听处理路由变化时的菜单聚焦
-watch(() => route.params.id, (val) => {
-  if (val?.length) {
-    activeMenu.value = val
-  }
-}, { immediate: true })
+watch(
+  () => route.params.id,
+  (val) => {
+    if (val?.length) {
+      activeMenu.value = val
+    }
+  },
+  { immediate: true }
+)
 
 /* debugger
 if (route.query.redirect) {

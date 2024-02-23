@@ -9,8 +9,8 @@
 <script>
 export default {
   data() {
-    return {};
-  },
+    return {}
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -105,7 +105,7 @@ export default {
 .mouth {
   width: 120px;
   height: 60px;
-  background-color: #FFF;
+  background-color: #fff;
   position: absolute;
   left: 55%;
   margin-left: -60px;

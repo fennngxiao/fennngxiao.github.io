@@ -27,7 +27,7 @@ function enter() {
 function refreshBG() {
   curBG.value = `BG-${randomNum(0, 30)}`
 }
-refreshBG();
+refreshBG()
 </script>
 
 <style lang="scss" scoped>
@@ -90,7 +90,6 @@ refreshBG();
 
       .btn-content {
         color: #fff;
-
       }
 
       .hover,

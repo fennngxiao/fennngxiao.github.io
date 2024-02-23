@@ -3,13 +3,22 @@
     <h2>mix-blend-mode: difference</h2>
     <div class="bl"></div>
     <p>
-      <br /> mix-blend-mode CSS属性描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。
+      <br />
+      mix-blend-mode CSS属性描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。
       <br />它有以下属性值：
 
       <el-table :data="tableData" border style="width: 300px">
-        <el-table-column :prop="col.prop" :label="col.label" v-for="col in columns" :key="col.prop" />
+        <el-table-column
+          :prop="col.prop"
+          :label="col.label"
+          v-for="col in columns"
+          :key="col.prop"
+        />
       </el-table>
-      <br /> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode">其他各种值的效果详见MDN</a>
+      <br />
+      <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/mix-blend-mode"
+        >其他各种值的效果详见MDN</a
+      >
     </p>
   </div>
 </template>
@@ -34,11 +43,11 @@ const tableData = [
   { key: 'luminosity', value: '亮度' },
   { key: 'initial', value: '初始' },
   { key: 'inherit', value: '继承' },
-  { key: 'unset', value: '复原' },
-];
+  { key: 'unset', value: '复原' }
+]
 const columns = [
   { prop: 'key', label: '值' },
-  { prop: 'value', label: '描述' },
+  { prop: 'value', label: '描述' }
 ]
 </script>
 
@@ -51,7 +60,7 @@ const columns = [
   border: 2px solid #333;
 
   &::before {
-    content: "TEST TEXT";
+    content: 'TEST TEXT';
     position: absolute;
     top: 50%;
     left: 50%;
