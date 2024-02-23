@@ -5,13 +5,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-// import { useRouter, useRoute } from 'vue-router'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 // components
 import MenuItem from './MenuItem.vue'
 import { menuDataStore } from '@/stores/menu'
 // const router = useRouter()
-// const route = useRoute()
+const route = useRoute()
 const emits = defineEmits(['select'])
 const store = menuDataStore()
 // data
@@ -28,6 +28,14 @@ const handleMenuSelect = (id) => {
 if (sessionStorage.currentMenu) {
   activeMenu.value = JSON.parse(sessionStorage.currentMenu).id
 }
+
+// 监听处理路由变化时的菜单聚焦
+watch(() => route.params.id, (val) => {
+  if (val?.length) {
+    activeMenu.value = val
+  }
+}, { immediate: true })
+
 /* debugger
 if (route.query.redirect) {
   router.replace({ path: route.query.redirect, query: { ...route.query, redirect: null } })
@@ -46,10 +54,12 @@ if (route.query.id) {
   --el-menu-hover-bg-color: #1d399c;
   --el-menu-submenu-title-bg-color: #2f44af;
   padding-top: 16px;
+
   :deep(.el-menu-item.is-active) {
     font-weight: bold;
     background-color: var(--el-menu-hover-bg-color);
   }
+
   :deep(.el-sub-menu__title) {
     // background: var(--el-menu-submenu-title-bg-color);
   }
