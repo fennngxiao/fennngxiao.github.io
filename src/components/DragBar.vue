@@ -1,6 +1,12 @@
 <template>
-  <div class="drag-bar" style="width: 6px" :class="{ 'is-draging': isDrag }" @mousedown="onDragMouseDown"
-    @mousemove="onDragMouseMove" @mouseup="onDragMouseUp" />
+  <div
+    class="drag-bar"
+    style="width: 6px"
+    :class="{ 'is-draging': isDrag }"
+    @mousedown="onDragMouseDown"
+    @mousemove="onDragMouseMove"
+    @mouseup="onDragMouseUp"
+  />
 </template>
 
 <script>
