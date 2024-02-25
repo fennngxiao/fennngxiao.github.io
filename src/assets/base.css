@@ -95,3 +95,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+mark {
+  color: var(--color-a) !important;
+  background: var(--color-background) !important;
+  font-weight: bold;
+}

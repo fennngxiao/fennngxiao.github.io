@@ -2,17 +2,12 @@
   <div class="top-bar">
     <div class="home-btn" @click="goHome()"><img src="../../assets/logo.png" alt="" /></div>
     <div class="actions">
-      <div class="search-btn btn"><i class="iconfont icon-search"></i></div>
-      <div class="github-btn btn"><i class="iconfont icon-github"></i></div>
-      <el-switch
-        class="theme-switch btn"
-        v-model="isDarkTheme"
-        size="default"
-        inline-prompt
-        :active-action-icon="Sunny"
-        :inactive-action-icon="Moon"
-        @change="themeChange"
-      />
+      <div class="btn">
+        <Search />
+      </div>
+      <div class="github-btn btn" @click="openGit"><i class="iconfont icon-github"></i></div>
+      <el-switch class="theme-switch btn" v-model="isDarkTheme" size="default" inline-prompt :active-action-icon="Sunny"
+        :inactive-action-icon="Moon" @change="themeChange" />
     </div>
   </div>
   <div class="layout">
@@ -28,6 +23,7 @@
 import { nextTick } from 'vue'
 import { RouterView } from 'vue-router'
 import Menu from './components/Menu.vue'
+import Search from './components/Search/index.vue';
 import { Sunny, Moon } from '@element-plus/icons-vue'
 import { useRouter, useRoute } from 'vue-router'
 import { themeStore } from '@/stores/app'
@@ -55,6 +51,9 @@ if (route.query.redirect && route.query.menu) {
 }
 const goHome = () => {
   router.push('/home')
+}
+const openGit = () => {
+  window.open('https://github.com/fennngxiao', '_blank')
 }
 </script>
 <style lang="scss" scoped>
@@ -98,6 +97,11 @@ $menuWidth: 280px;
     .btn {
       margin: 0 5px;
       cursor: pointer;
+      transition: opacity 0.35s ease;
+
+      &:hover {
+        opacity: 0.85;
+      }
     }
   }
 

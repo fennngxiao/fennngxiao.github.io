@@ -26,7 +26,8 @@ function readFileList(dir, parent, filesList = []) {
           fileName,
           fileType,
           path: fullPath,
-          category: parent
+          category: parent,
+          id: `${parent}-${fileName}`
         })
       }
     }
@@ -36,7 +37,11 @@ function readFileList(dir, parent, filesList = []) {
 async function getFileContent(filePath) {
   try {
     let content = await readFile(filePath, { encoding: 'utf8' })
-    content = content.replace(/\#/g, '').replace(/\n/g, '')
+    content = content
+      .replace(/\#/g, '')
+      .replace(/```javscript/g, '')
+      .replace(/```/g, '')
+      .replace(/\n/g, '')
     return content
   } catch (err) {
     console.error(err.message)
