@@ -21,7 +21,9 @@ function readFileList(dir, parent, filesList = []) {
       readFileList(path.join(dir, item), item, filesList) //递归读取文件
     } else {
       if (!item.startsWith('.')) {
-        const [fileName, fileType] = item.split('.')
+        const tempArr = item.split('.')
+        const fileType = tempArr[tempArr.length - 1]
+        const fileName = item.replace(`.${fileType}`, '')
         filesList.push({
           fileName,
           fileType,
