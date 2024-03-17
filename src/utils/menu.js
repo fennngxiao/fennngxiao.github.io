@@ -39,6 +39,12 @@ const categoryMapToTree = (levelMap) => {
   return loop(0, ROOT_CATEGORY)
 }
 
+const menuRootNodesSort = (data) => {
+  const arr = ['design', 'html', 'css', 'js', 'nodeJS', 'vue', 'react', 'other']
+  data.sort((a, b) => arr.indexOf(a.name) - arr.indexOf(b.name))
+  console.log(data)
+  return data
+}
 export function handleMenuData() {
   const router = useRouter()
   const articlesMap = {}
@@ -74,7 +80,8 @@ export function handleMenuData() {
       }
     })
   }
-  const menus = categoryMapToTree(categoryMap)
+
+  const menus = menuRootNodesSort(categoryMapToTree(categoryMap))
 
   return {
     categoryMap,
