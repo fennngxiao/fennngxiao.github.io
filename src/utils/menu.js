@@ -58,7 +58,9 @@ export function handleMenuData() {
       const category = i === 0 ? ROOT_CATEGORY : cateArr[i - 1] // 类型
       // 叶子结点（文章）
       if (i === cateArr.length - 1) {
-        let [name, type] = cateArr[i].split('.')
+        const tempArr = cateArr[i].split('.')
+        let type = tempArr[tempArr.length - 1]
+        const name = cateArr[i].replace(`.${type}`, '')
         type = type.toUpperCase()
         let obj = {}
         if (type === 'MD') {

@@ -60,12 +60,13 @@ const search = () => {
   if (keywords.value?.length) {
     let res = [];
     allData.forEach((item) => {
-      if (item.fileName.indexOf(keywords.value) > -1 || item.content.indexOf(keywords.value) > -1) {
+      const content = item.content;
+      if (item.fileName.indexOf(keywords.value) > -1 || content.indexOf(keywords.value) > -1) {
         const title = item.fileName.replace(keywords.value, `<mark>${keywords.value}</mark>`)
 
-        let cIndex = item.content.indexOf(keywords.value);
-        let ctt = item.content.substring(cIndex - DEF_INDEX_NUM, cIndex + DEF_INDEX_NUM);
-        ctt = `${cIndex - DEF_INDEX_NUM > 0 ? '...' : ''} ${ctt} ${cIndex + DEF_INDEX_NUM > item.content.length - 1 ? '...' : ''}`
+        let cIndex = content.indexOf(keywords.value);
+        let ctt = content.substring(cIndex - DEF_INDEX_NUM, cIndex + DEF_INDEX_NUM);
+        ctt = `${cIndex - DEF_INDEX_NUM > 0 ? '...' : ''} ${ctt} ${cIndex + DEF_INDEX_NUM > content.length - 1 ? '...' : ''}`
         const cttArr = ctt.split(keywords.value);
         cttArr.splice(1, 0, keywords.value)
         res.push({
