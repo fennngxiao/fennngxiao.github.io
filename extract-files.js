@@ -4,7 +4,7 @@ const fs = require('fs')
 const { readFile, writeFile } = require('fs/promises')
 
 const pathName = './src/views/articles' // 需遍历的文件夹路径
-const jsonPath = './src/utils/allFiles.json' // 生成 json 的文件路径
+const jsonPath = './public/static/allFiles.json' // 生成 json 的文件路径
 
 // 打开/创建文件并写入 JSON
 function writeJSON(file, data) {

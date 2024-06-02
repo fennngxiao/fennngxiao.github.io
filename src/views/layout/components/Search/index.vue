@@ -33,7 +33,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import allData from '@/utils/allFiles.json';
+import allData from '/public/static/allFiles.json';
 import { Close } from '@element-plus/icons-vue'
 
 const visible = ref(false);
